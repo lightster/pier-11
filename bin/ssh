@@ -1,0 +1,5 @@
+#!/bin/sh
+
+HOST=${1:-default}
+
+ssh -F $(dirname $0)/../ssh.cfg "$HOST"
