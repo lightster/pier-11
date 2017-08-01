@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
     :'chgrp-ignore' => true,
     :'create-with-perms' => "u=rwx:g=rwx:o=rD"
 
-  config.trigger.after [:up, :resume] do
+  config.trigger.after [:up, :resume, :reload, :provision] do
     File.write(__dir__ + "/ssh.cfg", `vagrant ssh-config`)
   end
 end
