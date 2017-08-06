@@ -3,7 +3,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "docker"
 
-  config.vm.network "private_network", type: "dhcp"
+  config.vm.network "private_network", ip: "192.168.11.11"
 
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
