@@ -3,6 +3,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "docker"
 
+  config.ssh.forward_agent = true
+
   config.vm.network "private_network", ip: "192.168.11.11"
 
   config.vm.synced_folder ".", "/vagrant", disabled: true
