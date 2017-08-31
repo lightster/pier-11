@@ -22,6 +22,10 @@ Vagrant.configure("2") do |config|
     :'chgrp-ignore' => true,
     :'create-with-perms' => "u=rwx:g=rwx:o=rD"
 
+  config.vm.provider "virtualbox" do |vm|
+    vm.memory = 1152
+  end
+
   config.trigger.after [:up, :resume, :reload, :provision] do
     File.write(__dir__ + "/ssh.cfg", `vagrant ssh-config`)
   end
