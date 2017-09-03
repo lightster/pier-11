@@ -1,7 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/trusty64"
 
-  config.vm.provision "docker"
+  config.vm.provision "shell", path: "bin/vagrant/install-docker.sh"
   config.vm.provision "shell", path: "bin/vagrant/install-docker-compose.sh"
   config.vm.provision "shell", path: "bin/vagrant/install-crons.sh"
 
@@ -28,5 +28,9 @@ Vagrant.configure("2") do |config|
 
   config.trigger.after [:up, :resume, :reload, :provision] do
     File.write(__dir__ + "/ssh.cfg", `vagrant ssh-config`)
+  end
+
+  config.trigger.after [:up, :resume, :reload, :provision] do
+    run_remote "if ! pgrep -x dockerd ; then service docker start ; fi"
   end
 end
