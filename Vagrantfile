@@ -15,13 +15,13 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/vagrant-nfs",
     :type => :nfs
   config.bindfs.bind_folder "/vagrant-nfs/codebase", "/codebase",
-    :perms => "u=rwx:g=rwx:o=rD",
+    :perms => "u=rwx:g=rwx:o=rwx",
     :owner => "vagrant",
     :group => "vagrant",
     :'chmod-ignore' => true,
     :'chown-ignore' => true,
     :'chgrp-ignore' => true,
-    :'create-with-perms' => "u=rwx:g=rwx:o=rD"
+    :'create-with-perms' => "u=rwx:g=rwx:o=rwx"
 
   config.vm.provider "virtualbox" do |vm|
     vm.memory = 1152
