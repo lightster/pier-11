@@ -25,6 +25,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provider "virtualbox" do |vm|
     vm.memory = 1152
+    vm.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 
   config.trigger.after [:up, :resume, :reload, :provision] do
