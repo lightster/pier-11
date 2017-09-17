@@ -29,7 +29,8 @@ Vagrant.configure("2") do |config|
   end
 
   config.trigger.after [:up, :resume, :reload, :provision] do
-    File.write(__dir__ + "/ssh.cfg", `vagrant ssh-config`)
+    ssh_config = `vagrant ssh-config`.sub(/(LogLevel\s+).*$/, '\1ERROR')
+    File.write(__dir__ + "/ssh.cfg", ssh_config)
   end
 
   config.trigger.after [:up, :resume, :reload, :provision] do
