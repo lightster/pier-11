@@ -36,18 +36,4 @@ Vagrant.configure("2") do |config|
   config.trigger.after [:up, :resume, :reload, :provision] do
     run_remote "if ! pgrep -x dockerd ; then service docker start ; fi"
   end
-
-  config.trigger.after [:up, :resume, :reload, :provision] do
-    if Vagrant::Util::Platform.darwin? then
-      pier_lo0 = %x(networksetup -getinfo pier-11-loopback)
-      pier_lo0_status = $?
-      if pier_lo0_status.exitstatus != 0 then
-        run "sudo networksetup -createnetworkservice pier-11-loopback lo0"
-      end
-
-      if !pier_lo0.include? "172.16.123.1" then
-        run "sudo networksetup -setmanual pier-11-loopback 172.16.123.1 255.255.255.0"
-      end
-    end
-  end
 end
