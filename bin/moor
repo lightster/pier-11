@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ssh -q -t -F $(dirname $(readlink $0))/../ssh.cfg default "cd /codebase/pier/bin && ./moor $@"
