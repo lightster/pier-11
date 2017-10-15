@@ -1,2 +1,4 @@
+/.pier/config.overrides.yaml
+/.pier/project/
 /.vagrant
 /ssh.cfg
