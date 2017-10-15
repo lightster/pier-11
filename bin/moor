@@ -1,3 +1,5 @@
 #!/bin/sh
 
-ssh -q -t -F $(dirname $(readlink $0))/../ssh.cfg default "cd /vagrant/codebase/lightster/pier-cli/bin && ./moor $@"
+source $(dirname $(readlink $0))/lib.sh
+
+pier_command "" "moor" "${@:1}"
