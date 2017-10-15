@@ -17,6 +17,7 @@ pier_command() {
 
     local SSH_COMMAND=$(cat <<BASH
 cd /vagrant/codebase/
+source /etc/profile.d/rvm.sh
 /vagrant/codebase/lightster/pier-cli/bin/${CLI} ${COMMANDS}
 BASH
     )
