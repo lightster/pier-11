@@ -30,6 +30,12 @@ Vagrant.configure("2") do |config|
 
   config.trigger.after [:up, :resume, :reload, :provision] do
     ssh_config = `vagrant ssh-config`.sub(/(LogLevel\s+).*$/, '\1ERROR')
+    ssh_config << <<CONFIG
+  ControlMaster auto
+  ControlPath ~/.ssh/pier-%r@%h:%p
+  ControlPersist 1h
+CONFIG
+
     File.write(__dir__ + "/ssh.cfg", ssh_config)
   end
 
