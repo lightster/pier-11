@@ -10,6 +10,7 @@ endif
 ifeq ($(wildcard /usr/local/bin/moor),)
 	ln -sfn $(PWD)/bin/moor /usr/local/bin/moor
 endif
+	vagrant ssh -c "cd /vagrant/codebase/lightster/pier-cli && sudo make install"
 
 codebase/lightster/pier-cli:
 	git clone git@github.com:lightster/pier-cli.git codebase/lightster/pier-cli
