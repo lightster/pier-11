@@ -21,6 +21,7 @@ cd /vagrant/codebase/ \
 && source /etc/profile.d/rvm.sh \
 && MAPPED_DIR=\$(/vagrant/codebase/lightster/pier-cli/bin/moor map-to-guest-workspace "${WORKSPACE_ROOT}" "${PWD}") \
 && cd \$MAPPED_DIR \
+&& export PIER_HOST_ROOT="${WORKSPACE_ROOT}" \
 && /vagrant/codebase/lightster/pier-cli/bin/${CLI} ${COMMANDS}
 BASH
     )
