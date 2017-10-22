@@ -17,10 +17,11 @@ pier_command() {
     local WORKSPACE_ROOT=$(dirname $(dirname $(readlink "${0}")))
 
     local SSH_COMMAND=$(cat <<BASH
-cd /vagrant/codebase/
-source /etc/profile.d/rvm.sh
-cd \$(/vagrant/codebase/lightster/pier-cli/bin/moor map-to-guest-workspace "${WORKSPACE_ROOT}" "${PWD}")
-/vagrant/codebase/lightster/pier-cli/bin/${CLI} ${COMMANDS}
+cd /vagrant/codebase/ \
+&& source /etc/profile.d/rvm.sh \
+&& MAPPED_DIR=\$(/vagrant/codebase/lightster/pier-cli/bin/moor map-to-guest-workspace "${WORKSPACE_ROOT}" "${PWD}") \
+&& cd \$MAPPED_DIR \
+&& /vagrant/codebase/lightster/pier-cli/bin/${CLI} ${COMMANDS}
 BASH
     )
 
