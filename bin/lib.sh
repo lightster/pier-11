@@ -22,6 +22,7 @@ cd /vagrant/codebase/ \
 && MAPPED_DIR=\$(/vagrant/codebase/lightster/pier-cli/bin/moor map-to-guest-workspace "${WORKSPACE_ROOT}" "${PWD}") \
 && cd \$MAPPED_DIR \
 && export PIER_HOST_ROOT="${WORKSPACE_ROOT}" \
+&& export PIER_MOOR_BASH="${PIER_MOOR_BASH}" \
 && /vagrant/codebase/lightster/pier-cli/bin/${CLI} ${COMMANDS}
 BASH
     )
