@@ -3,7 +3,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", path: "bin/vagrant/install-docker.sh"
   config.vm.provision "shell", path: "bin/vagrant/install-docker-compose.sh"
-  config.vm.provision "shell", path: "bin/vagrant/install-crons.sh"
   config.vm.provision "shell", path: "bin/vagrant/install-rvm.sh"
 
   config.ssh.forward_agent = true
@@ -26,6 +25,13 @@ Vagrant.configure("2") do |config|
   config.vm.provider "virtualbox" do |vm|
     vm.memory = 1152
     vm.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    vm.customize [
+      "guestproperty",
+      "set",
+      :id,
+      "/VirtualBox/GuestAdd/VBoxService/--timesync-set-threshold",
+      10000
+    ]
   end
 
   config.trigger.after [:up, :resume, :reload, :provision] do
