@@ -4,7 +4,7 @@ Pier 11 is my experimental Vagrant machine for building and utilizing developmen
 ## Vision
 The three primary inconveniences I am trying to avoid are:
 
-1. Experiencing a dramatic I/O slowdown
+1. [Experiencing a dramatic I/O slowdown of mounted Docker volumes on macOS](https://forums.docker.com/t/file-access-in-mounted-volumes-extremely-slow-cpu-bound/8076/276)
 2. Needing to rebuild my containers after each code change
 3. Deciding whether I need to be SSH’d into a VM before running a command
 
