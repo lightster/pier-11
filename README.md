@@ -1,5 +1,5 @@
 # Pier 11
-Pier 11 is my experimental Vagrant machine for building and utilizing development Docker containers, particularly when running macOS as a guest machine.
+Pier 11 is my experimental Vagrant machine for building and utilizing development Docker containers, particularly when running macOS as a host machine.
 
 ## Vision
 My motivation is to create an easy to setup environment for running development Docker containers without experiencing
