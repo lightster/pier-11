@@ -6,7 +6,7 @@ The three primary inconveniences I am trying to avoid are:
 
 1. Experiencing a dramatic I/O slowdown
 2. Needing to rebuild my containers after each code change
-3. Deciding whether I needed to be SSH’d into a VM before running a command
+3. Deciding whether I need to be SSH’d into a VM before running a command
 
 Born were Pier 11 as well as the [`pier` and `moor` command line tools](https://github.com/lightster/pier-cli).
 
@@ -44,7 +44,7 @@ My motivation is to create an easy to setup environment for running development 
 
 I also consider it unacceptable as a developer to need to rebuild a container between making a code change and running tests.  I want to be able to test changes quickly and not wait for a build to finish.
 
-As I began to brainstorm ways to do achieve this, I also recognized I did not want the overhead of deciding if I needed to SSH into a VM to run a command or to run it on the host machine.  I have maintained a Vagrant development environment at work for a few years, and I often have asked (and been asked):
+As I began to brainstorm ways to do achieve this, I also recognized I did not want the overhead of deciding if I needed to SSH into a VM to run a command or to run it on the host machine.  I have maintained a Vagrant development environment at work for a few years, and I often have asked and have been asked:
 
 > I need to run `git clone` on my Mac? I should run `docker-compose` on the VM? What about the `make` command—should I run that on the VM or my Mac?
 
