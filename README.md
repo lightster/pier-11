@@ -2,7 +2,7 @@
 Pier 11 is my experimental Vagrant machine for building and utilizing development Docker containers, particularly when running macOS as a host machine.
 
 ## Vision
-The three primary inconveniences I am trying to avoid were:
+The three primary inconveniences I am trying to avoid are:
 
 1. Experiencing a dramatic I/O slowdown
 2. Needing to rebuild my containers after each code change
