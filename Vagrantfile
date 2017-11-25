@@ -1,5 +1,5 @@
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
 
   config.vm.provision "shell", path: "bin/vagrant/install-docker.sh"
   config.vm.provision "shell", path: "bin/vagrant/install-docker-compose.sh"
@@ -15,8 +15,8 @@ Vagrant.configure("2") do |config|
     :type => :nfs
   config.bindfs.bind_folder "/vagrant-nfs", "/vagrant",
     :perms => "u=rwx:g=rwx:o=rwx",
-    :owner => "vagrant",
-    :group => "vagrant",
+    :owner => "ubuntu",
+    :group => "ubuntu",
     :'chmod-ignore' => true,
     :'chown-ignore' => true,
     :'chgrp-ignore' => true,

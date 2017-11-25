@@ -10,7 +10,7 @@ if ! which rvm ; then
   apt-get update -qq -y
   apt-get install -qq -y rvm
 
-  usermod -aG rvm vagrant
+  usermod -aG rvm ubuntu
 
   source /etc/profile.d/rvm.sh
 

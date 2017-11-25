@@ -22,7 +22,7 @@ if [ ! -f /usr/bin/docker ]; then
   apt-get update -qq -y
   apt-get install -qq -y docker-ce
 
-  sudo usermod -aG docker vagrant
+  sudo usermod -aG docker ubuntu
 
   echo "docker installed!"
 else
