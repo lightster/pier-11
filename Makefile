@@ -14,6 +14,7 @@ endif
 		cd /vagrant/codebase/lightster/pier-cli \
 		&& ./configure --srcdir="$$(pwd)" --prefix="/usr/local" \
 		&& sudo make install \
+		&& moor install lightster/buoy \
 	'
 
 codebase/lightster/pier-cli:
