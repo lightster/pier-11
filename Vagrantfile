@@ -17,6 +17,7 @@ Vagrant.configure("2") do |config|
     :perms => "u=rwx:g=rwx:o=rwx",
     :owner => "ubuntu",
     :group => "ubuntu",
+    o: "nonempty",
     :'chmod-ignore' => true,
     :'chown-ignore' => true,
     :'chgrp-ignore' => true,
