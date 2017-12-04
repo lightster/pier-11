@@ -12,16 +12,16 @@ Vagrant.configure("2") do |config|
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
   config.vm.synced_folder ".", "/vagrant-nfs",
-    :type => :nfs
+    type: :nfs
   config.bindfs.bind_folder "/vagrant-nfs", "/vagrant",
-    :perms => "u=rwx:g=rwx:o=rwx",
-    :owner => "ubuntu",
-    :group => "ubuntu",
+    perms: "u=rwx:g=rwx:o=rwx",
+    owner: "ubuntu",
+    group: "ubuntu",
     o: "nonempty",
-    :'chmod-ignore' => true,
-    :'chown-ignore' => true,
-    :'chgrp-ignore' => true,
-    :'create-with-perms' => "u=rwx:g=rwx:o=rwx"
+    'chmod-ignore': true,
+    'chown-ignore': true,
+    'chgrp-ignore': true,
+    'create-with-perms': "u=rwx:g=rwx:o=rwx"
 
   config.vm.provider "virtualbox" do |vm|
     vm.memory = 1152
