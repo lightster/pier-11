@@ -55,6 +55,6 @@ CONFIG
   end
 
   config.trigger.after [:up, :resume, :reload, :provision] do
-    run_remote "if ! pgrep -x dockerd ; then service docker start ; fi"
+    run_remote "if ! pgrep -x dockerd ; then service docker start ; else service docker restart ; fi"
   end
 end
