@@ -1,7 +1,11 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/xenial64"
 
-  config.vm.provision "shell", path: "bin/vagrant/install-docker.sh"
+  vagrant_user = "vagrant"
+
+  config.vm.provision "shell",
+    path: "bin/vagrant/install-docker.sh",
+    args: vagrant_user
   config.vm.provision "shell", path: "bin/vagrant/install-docker-compose.sh"
   config.vm.provision "shell", path: "bin/vagrant/install-rvm.sh"
 
@@ -23,8 +27,8 @@ Vagrant.configure("2") do |config|
     type: :nfs
   config.bindfs.bind_folder "/vagrant-nfs", "/vagrant",
     perms: "u=rwx:g=rwx:o=rwx",
-    owner: "ubuntu",
-    group: "ubuntu",
+    owner: vagrant_user,
+    group: vagrant_user,
     o: "nonempty",
     'chmod-ignore': true,
     'chown-ignore': true,

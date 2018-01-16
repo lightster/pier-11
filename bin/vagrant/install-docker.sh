@@ -2,6 +2,13 @@
 
 echo -n "Installing docker"
 
+if [ "$#" -ne 1 ]; then
+    echo "Usage: ${0} VAGRANT_USER"
+    exit 1
+fi
+
+VAGRANT_USER="$1"
+
 if [ ! -f /usr/bin/docker ]; then
   apt-get remove -qq -y docker docker.io
   apt-get update -qq -y
@@ -22,7 +29,7 @@ if [ ! -f /usr/bin/docker ]; then
   apt-get update -qq -y
   apt-get install -qq -y docker-ce
 
-  sudo usermod -aG docker ubuntu
+  sudo usermod -aG docker "$VAGRANT_USER"
 
   echo "docker installed!"
 else
