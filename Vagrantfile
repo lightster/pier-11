@@ -9,14 +9,6 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", path: "bin/vagrant/install-docker-compose.sh"
   config.vm.provision "shell", path: "bin/vagrant/install-rvm.sh"
 
-  Dir.glob("#{ENV['HOME']}/.ssh/*") do |file|
-    if file =~ /(config$)|(id_[rd]sa[^\/]*$)/ && file !~ /\.pub$/
-      config.vm.provision "file",
-        source: file,
-        destination: "$HOME/.ssh/".concat(File.basename(file))
-    end
-  end
-
   config.ssh.forward_agent = true
 
   config.vm.network "private_network", ip: "192.168.11.11"
